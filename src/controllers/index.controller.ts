@@ -20,6 +20,7 @@ export async function addUser(req: Request, res: Response) {
 
 export async function fetchUser(req: Request, res: Response) {
     const _dataToFind = _fetchData();
+    console.log(_dataToFind, "L:LLLL");
     let _getData = await _dataToFind.find((user: any) => user.uniqueId === req.body.uniqueId)
     res.send({ success: true, msg: "Post Details", data: _getData })
 }
