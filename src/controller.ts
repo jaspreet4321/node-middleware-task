@@ -2,7 +2,6 @@ import  { Request, Response } from 'express';
 import fs from "fs";
 
 export async function addUser(req: Request, res: Response) {
-    console.log(req.session, "piiiiiiiiiiiii");
     if (!fs.existsSync(`${__dirname}/data`)) {
         fs.mkdirSync(`${__dirname}/data`);
     }
@@ -16,7 +15,6 @@ export async function addUser(req: Request, res: Response) {
 }
 
 export async function fetchUser(req: Request, res: Response) {
-    console.log(req.session, "lppppppppppppppppp");
     let data = fs.readFileSync(`${__dirname}/data/${req.params.id}.json`, "utf-8");
     res.status(200).json(JSON.parse(data));
 }
