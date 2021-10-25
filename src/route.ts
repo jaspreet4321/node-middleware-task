@@ -1,9 +1,9 @@
 import { Router } from 'express';
 const router = Router();
 
-import Routes from "./routes/index.routes"
+import { addUser, fetchUser } from './controller';
 
-router.use('/pub/proxy/',Routes);
-router.use('/api/proxy/',Routes);
+router.post('/save/:id', addUser);
+router.get('/save/:id', fetchUser);
 
 export default router; 
